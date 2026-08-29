@@ -5,6 +5,9 @@ lib/
 *.tsbuildinfo
 pnpm-debug.log
 .pnpm-store/
+.pnpm-home/
+.pnpm-cache/
+.pnpm-state/
 .cache/
 examples/*/*.jsonl
 .storages/
@@ -26,6 +29,8 @@ tmp/
 .idea
 mise.toml
 dist-exe/
+dist-release/
+install-windows.cmd
 python/sdk-runtime/src/deepseek_harness_runtime/runtime/deepseek-harness-sdk-runtime-*
 python/sdk-runtime/src/deepseek_harness_runtime/runtime/node/
 python/**/__pycache__/
