@@ -1,0 +1,14 @@
+{
+  "name": "dsh-desktop",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness — Desktop GUI wrapper",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . dsh-desktop --platform=win32 --arch=x64 --overwrite --icon=../dsh.ico --out=../dist-electron"
+  },
+  "devDependencies": {
+    "@electron/asar": "^4.3.0",
+    "electron": "^44.0.0"
+  }
+}

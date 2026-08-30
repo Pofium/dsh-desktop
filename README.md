@@ -16,6 +16,12 @@ Review the [safety notice](SAFETY.md) before running the project.
 
 ## Run
 
+### Windows Desktop Application (MSI & Portable)
+
+For Windows 10/11 users, pre-built desktop packages are available in [Releases](https://github.com/Pofium/dsh-desktop/releases):
+- **Windows MSI Installer (`.msi`)**: Standard Windows setup package with desktop icon, Start Menu shortcuts, and choice between *Per-User* (no admin required) or *Per-Machine* installation.
+- **Portable ZIP (`.zip`)**: Standalone archive — extract and launch `DeepSeek Harness.exe`.
+
 ### Run from `npm`
 
 Install `Node.js`, then run:

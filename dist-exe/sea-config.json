@@ -1,0 +1,5 @@
+{
+  "main": "dist-exe/sea-bootstrap.js",
+  "output": "dist-exe/sea-prep.blob",
+  "disableExperimentalSEAWarning": true
+}

@@ -27,8 +27,12 @@ tmp/
 .vscode/
 .DS_Store
 .idea
-mise.toml
-dist-exe/
+dist-exe/DeepSeek-Harness/
+dist-exe/tools/
+dist-exe/msi-build/
+dist-exe/app-staging/
+dist-exe/installer/node_modules/
+dist-exe/*.exe
 dist-release/
 install-windows.cmd
 python/sdk-runtime/src/deepseek_harness_runtime/runtime/deepseek-harness-sdk-runtime-*
