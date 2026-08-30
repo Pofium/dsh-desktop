@@ -33,13 +33,13 @@ export const zh = {
   blocked: '被依赖阻塞',
   conflict: '任务状态已变化，已重新加载；请检查后重试。',
   'memberStatus.running': '运行中',
-  'memberStatus.idle': 'Ожидание',
+  'memberStatus.idle': '空闲',
   'memberStatus.inactive': '未运行',
   'memberStatus.provisioning': '准备中',
   'memberStatus.failed': '失败',
   'status.pending': '待处理',
-  'status.in_progress': 'Выполняется',
-  'status.completed': 'Завершено',
+  'status.in_progress': '进行中',
+  'status.completed': '已完成',
 } satisfies Record<string, string>
 
 /** Agent Teams locale key union. */
@@ -84,13 +84,13 @@ export const en = {
   'status.completed': 'Completed',
 } satisfies Record<TeamKey, string>
 
-/** Russian dictionary checked against the Chinese key set. */
+/** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  trigger: 'Команда агентов',
-  refresh: 'Обновить команду',
+  trigger: 'Agent Team',
+  refresh: 'Обновить Team',
   close: 'Закрыть',
-  loading: 'Загрузка команды…',
-  empty: 'Пока нет общих задач',
+  loading: 'Загрузка…',
+  empty: 'Нет доступных плагинов.',
   roster: 'Участники',
   tasks: 'Общие задачи',
   model: 'Модель',
@@ -118,8 +118,7 @@ export const ru = {
   'memberStatus.inactive': 'Не активен',
   'memberStatus.provisioning': 'Подготовка',
   'memberStatus.failed': 'Ошибка',
-  'status.pending': 'В очереди',
+  'status.pending': 'Ожидание',
   'status.in_progress': 'В работе',
   'status.completed': 'Завершено',
 } satisfies Record<TeamKey, string>
-

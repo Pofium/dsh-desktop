@@ -64,16 +64,16 @@ export const accessEn = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'title': 'Permission',
-  'description': 'Choose the default permission mode for new sessions',
-  'loading': 'Loading',
-  'unavailable': 'Unavailable',
-  'preset.readOnly': 'Read Only',
-  'preset.workspaceWrite': 'Workspace Write',
-  'preset.fullAccess': 'Full access',
-  'confirm.title': 'Enable Full access?',
-  'confirm.description': 'Full access lets new sessions reduce confirmation steps and perform more actions directly, including sensitive operations, file changes, or external commands. Only use it when you trust subsequent tasks.',
-  'confirm.acknowledge': 'I understand the risks and want to continue',
-  'confirm.cancel': 'Cancel',
-  'confirm.enable': 'Enable Full access',
+  title: 'Разрешения',
+  description: 'Описание задачи',
+  loading: 'Загрузка…',
+  unavailable: 'Недоступно',
+  'preset.readOnly': 'Только чтение',
+  'preset.workspaceWrite': 'Запись в рабочую область',
+  'preset.fullAccess': 'Полный доступ',
+  'confirm.title': 'Включить полный доступ?',
+  'confirm.description': 'Полный доступ позволяет новым сессиям сократить количество подтверждений и выполнять больше действий напрямую. Используйте только для доверенных задач.',
+  'confirm.acknowledge': 'Я понимаю риски и хочу продолжить',
+  'confirm.cancel': 'Отмена',
+  'confirm.enable': 'Включить полный доступ',
 } satisfies Record<PermissionSettingsKey, string>

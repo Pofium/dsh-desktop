@@ -16,13 +16,13 @@ export const zh = {
   'section.files': '文件与文件夹',
   'section.sessions': '对话',
   'candidate.noCwd': '（无工作目录）',
-  'crumb.root': 'Рабочие области',
-  'time.now': 'Только что',
-  'time.minutes': '{n} мин',
-  'time.hours': '{n} ч',
-  'time.days': '{n} дн',
-  'time.months': '{n} мес',
-  'time.years': '{n} г',
+  'crumb.root': '工作区',
+  'time.now': '刚刚',
+  'time.minutes': '{n}分钟',
+  'time.hours': '{n}小时',
+  'time.days': '{n}天',
+  'time.months': '{n}个月',
+  'time.years': '{n}年',
 } satisfies Record<string, string>
 
 /** The reference namespace key union. */
@@ -51,9 +51,9 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'section.files': 'Files & folders',
-  'section.sessions': 'Sessions',
-  'candidate.noCwd': '(no cwd)',
+  'section.files': 'Файлы и папки',
+  'section.sessions': 'Сессии',
+  'candidate.noCwd': '(нет рабочей папки)',
   'crumb.root': 'Рабочие области',
   'time.now': 'Только что',
   'time.minutes': '{n} мин',

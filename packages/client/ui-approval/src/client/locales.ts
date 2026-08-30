@@ -23,5 +23,9 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'detail.aria': 'Approval details',
+  waiting: 'Ожидание решения',
+  'detail.aria': 'Детали подтверждения',
+  escalation: 'Запрос повышенных привилегий',
+  reject: 'Отклонить',
+  allowOnce: 'Разрешить один раз',
 } satisfies Record<ApprovalKey, string>

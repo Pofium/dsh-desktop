@@ -37,16 +37,16 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'trigger': 'Настройки',
-  'title': 'Настройки',
-  'close': 'Закрыть',
-  'openDocument': 'Открыть файл конфигурации',
+  trigger: 'Agent Team',
+  title: 'Разрешения',
+  close: 'Закрыть',
+  openDocument: 'Открыть файл конфигурации',
   'openDocument.error': 'Не удалось открыть файл конфигурации',
   'general.nav': 'Общие настройки',
-  'connection.error': 'Disconnected',
-  'connection.retry': 'Reconnect now',
-  'connection.connecting': 'Connecting',
-  'connection.connected': 'Connected',
-  'connection.reconnect': 'Disconnected, reconnect now',
-  'connection.restart': 'Connecting, restart now',
+  'connection.error': 'Отключено',
+  'connection.retry': 'Переподключиться',
+  'connection.connecting': 'Подключение…',
+  'connection.connected': 'Подключено',
+  'connection.reconnect': 'Отключено, переподключиться',
+  'connection.restart': 'Подключение, перезапустить',
 } satisfies Record<SettingsKey, string>

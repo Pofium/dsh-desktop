@@ -76,7 +76,7 @@ export const zh = {
   'todo.completed': '{done}/{total} 已完成',
   'command.imagesUnsupported': '/{command} 不接受图片附件，请先移除图片',
   'ask.rowTitle': '提问',
-  'ask.waiting': 'Ожидает ответа',
+  'ask.waiting': '等待回答',
   'ask.cancelled': '已取消',
   'ask.cancelledDetail': '本轮已取消，未提交回答',
   'ask.interrupted': '已中断',
@@ -145,7 +145,7 @@ export const zh = {
   'terminal.exitCode': '退出码 {code}',
   'terminal.running': '运行中',
   'terminal.failed': '失败',
-  'terminal.done': 'Завершено',
+  'terminal.done': '已完成',
   'terminal.noOutput': '无输出',
   'terminal.collapseAria': '收起输出',
   'terminal.expandAria': '展开其余 {n} 行输出',
@@ -306,14 +306,12 @@ export const en = {
   'terminal.session': 'Terminal {sessionId}',
 } satisfies Record<ConversationKey, string>
 
-const PLAN_NEXT_ACTION_RU = 'опишите задачу для составления плана'
-
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'hint.plan': PLAN_NEXT_ACTION_RU,
+  'hint.plan': 'опишите задачу для составления плана',
   'hint.goal': 'опишите цель для длительной задачи',
   'hint.goal.active': 'цель активна — edit / pause / resume / clear',
-  'placeholder.plan': PLAN_NEXT_ACTION_RU,
+  'placeholder.plan': 'опишите задачу для составления плана',
   'placeholder.default': 'Отправьте сообщение или задачу… / команды, @ файлы или сессии',
   'placeholder.unavailable': 'Сессия недоступна',
   'placeholder.parentOffline': 'Родительская сессия офлайн; отправка недоступна, но можно остановить выполнение',
@@ -387,9 +385,9 @@ export const ru = {
   'bash.running': 'Выполняется',
   'bash.failed': 'Ошибка',
   'bash.stopped': 'Остановлено',
-  'row.running': 'Выполняется',
-  'row.failed': 'Ошибка',
-  'row.stopped': 'Остановлено',
+  'row.running': 'Загрузка навыка…',
+  'row.failed': 'Не удалось загрузить навык',
+  'row.stopped': 'Загрузка навыка остановлена',
   'row.input': 'ВХОД',
   'row.output': 'ВЫХОД',
   'row.inspect': 'Просмотр',
@@ -454,4 +452,3 @@ export const ru = {
   'terminal.sendInput': '(отправка ввода)',
   'terminal.session': 'Терминал {sessionId}',
 } satisfies Record<ConversationKey, string>
-

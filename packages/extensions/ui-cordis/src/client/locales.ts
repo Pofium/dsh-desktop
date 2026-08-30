@@ -33,10 +33,10 @@ export const zh = {
   'panel.version': '版本',
   'panel.current': '当前：{packageId}',
   'panel.next': '待切换：{packageId}',
-  'action.approve': 'Разрешить',
+  'action.approve': '允许',
   'action.approveOnce': '仅允许此版本',
   'action.approvePlugin': '允许此插件的后续版本',
-  'action.decline': 'Отклонить',
+  'action.decline': '拒绝',
   'action.run': '运行',
   'action.stop': '停止',
   'action.remove': '移除',
@@ -53,7 +53,7 @@ export const zh = {
   'body.clientCode': 'Client',
   'body.output': '结果',
   'body.copy': '复制',
-  'body.copied': 'Скопировано',
+  'body.copied': '已复制',
 } satisfies Record<string, string>
 
 /** Translation keys owned by the Cordis UI namespace. */
@@ -120,7 +120,7 @@ export const en = {
   'body.copied': 'Copied',
 } satisfies Record<CordisKey, string>
 
-/** Russian Cordis UI messages. */
+/** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
   'row.defineTitle': 'Регистрация плагина Cordis',
   'row.runTitle': 'Запуск плагина Cordis',
@@ -128,11 +128,11 @@ export const ru = {
   'row.stopTitle': 'Остановка плагина Cordis',
   'row.removeTitle': 'Удаление плагина Cordis',
   'purpose.missing': '(назначение не указано)',
-  'status.idle': 'Готов к активации',
+  'status.idle': 'Ожидание',
   'status.awaitingApproval': 'Ожидает подтверждения',
-  'status.failed': 'Ошибка запуска',
-  'status.clientPending': 'Клиент готов к активации',
-  'status.running': 'Выполняется',
+  'status.failed': 'Ошибка',
+  'status.clientPending': 'Client готов к активации',
+  'status.running': 'выполняется',
   'status.removed': 'Удалено',
   'status.superseded': 'Доступна новая версия',
   'run.removed': 'Пакет больше не существует',
@@ -153,7 +153,7 @@ export const ru = {
   'panel.next': 'Следующая: {packageId}',
   'action.approve': 'Разрешить',
   'action.approveOnce': 'Разрешить только эту версию',
-  'action.approvePlugin': 'Всегда разрешать этот плагин',
+  'action.approvePlugin': 'Разрешить будущие версии этого плагина',
   'action.decline': 'Отклонить',
   'action.run': 'Запустить',
   'action.stop': 'Остановить',
@@ -173,4 +173,3 @@ export const ru = {
   'body.copy': 'Копировать',
   'body.copied': 'Скопировано',
 } satisfies Record<CordisKey, string>
-

@@ -85,17 +85,40 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-
+  tab: 'Список плагинов',
+  loading: 'Загрузка…',
+  error: 'Ошибка',
+  retry: 'Повторить',
+  search: 'Поиск',
+  empty: 'Нет доступных плагинов.',
+  emptySearch: 'Нет подходящих плагинов.',
+  presetTitle: 'Плагины сессии',
+  presetSubtitle: 'Определяются пресетом агента для каждой сессии',
+  countUnit: 'плаг.',
+  switcherLabel: 'Выберите пресет агента для просмотра',
+  presetOptionDefault: '{name} (по умолчанию)',
+  presetOptionBroken: '{name} (ошибка загрузки)',
+  globalTitle: 'Глобальные плагины',
+  globalSubtitle: 'Общие для системы и всех сессий',
+  presetProvidedDetail: 'Отключено глобально; предоставляется пресетом агента для сессии',
+  enabledIn: 'Включено в',
+  viewInPreset: 'Посмотреть в группе пресета',
+  matchesInOtherPresets: 'Ещё {count} совпадений в других пресетах: ',
+  failedCountLabel: 'с ошибкой',
+  enabledTag: 'Включён',
+  disabledTag: 'Отключён',
+  conditionalTag: 'По условию',
+  presetEnabledTag: 'Включён пресетом',
+  failedTag: 'С ошибкой',
+  moduleLabel: 'Модуль',
+  fromPreset: 'Из пресета',
+  condition: 'Отключается при',
+  configuration: 'Конфигурация',
+  runtime: 'Состояние',
+  unobserved: 'Не запущен',
+  pending: 'Ожидание зависимостей',
+  loadingPhase: 'Загрузка',
+  active: 'Работает',
+  failed: 'Ошибка запуска',
+  unloading: 'Выгрузка',
 } satisfies Record<PluginInventoryLocaleKey, string>
-
-/** Russian dictionary, checked complete against the zh key set. */
-export const ru: Record<PluginInventoryKey, string> = {
-  'nav': 'Каталог плагинов',
-  'title': 'Каталог плагинов',
-  'installed': 'Установленные',
-  'available': 'Доступные',
-  'search': 'Поиск плагинов…',
-  'install': 'Установить',
-  'uninstall': 'Удалить',
-  'empty': 'Плагины не найдены',
-}

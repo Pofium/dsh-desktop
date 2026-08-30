@@ -35,15 +35,15 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'phase.active': 'Ongoing Goal',
-  'phase.paused': 'Paused Goal',
-  'phase.blocked': 'Blocked Goal',
-  'objective.aria': 'Goal objective',
-  'commandInput.aria': 'Command input',
-  'action.save': 'Save goal',
-  'action.cancel': 'Cancel edit',
-  'action.pause': 'Pause goal',
-  'action.resume': 'Resume goal',
-  'action.edit': 'Edit goal',
-  'action.clear': 'Clear goal',
+  'phase.active': 'Текущая цель',
+  'phase.paused': 'Приостановленная цель',
+  'phase.blocked': 'Заблокированная цель',
+  'objective.aria': 'Цель задачи',
+  'commandInput.aria': 'Ввод команды',
+  'action.save': 'Сохранить цель',
+  'action.cancel': 'Отменить редактирование',
+  'action.pause': 'Приостановить цель',
+  'action.resume': 'Возобновить цель',
+  'action.edit': 'Редактировать цель',
+  'action.clear': 'Очистить цель',
 } satisfies Record<GoalKey, string>

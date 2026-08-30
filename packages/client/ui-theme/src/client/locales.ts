@@ -3,9 +3,9 @@
 /** Simplified Chinese dictionary (the key-set source of truth). */
 export const zh = {
   'appearance.title': '外观',
-  'appearance.light': 'Светлая',
-  'appearance.dark': 'Тёмная',
-  'appearance.system': 'Системная',
+  'appearance.light': '浅色',
+  'appearance.dark': '深色',
+  'appearance.system': '跟随系统',
   'fontSize.title': '字号大小',
   'fontSize.description': '仅影响会话内容的字号',
   'fontSize.unit': 'px',
@@ -31,13 +31,13 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'appearance.title': 'Appearance',
+  'appearance.title': 'Внешний вид',
   'appearance.light': 'Светлая',
   'appearance.dark': 'Тёмная',
   'appearance.system': 'Системная',
-  'fontSize.title': 'Font size',
-  'fontSize.description': 'Only affects conversation content',
+  'fontSize.title': 'Размер шрифта',
+  'fontSize.description': 'Влияет только на размер шрифта сообщений',
   'fontSize.unit': 'px',
-  'fontSize.increase': 'Increase font size',
-  'fontSize.decrease': 'Decrease font size',
+  'fontSize.increase': 'Увеличить размер шрифта',
+  'fontSize.decrease': 'Уменьшить размер шрифта',
 } satisfies Record<ThemeKey, string>

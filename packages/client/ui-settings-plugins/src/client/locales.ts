@@ -130,19 +130,19 @@ export const zh: Record<PluginsSettingsLocaleKey, string> = {
   subagentModelSelectionOff: '关闭后，Subagent 使用配置的默认模型或继承父 Agent 的模型；已选模型会保留。',
 }
 
-/** Russian copy. */
+/** Russian dictionary, checked complete against the zh key set. */
 export const ru: Record<PluginsSettingsLocaleKey, string> = {
-  nav: 'Плагины',
-  title: 'Плагины',
+  nav: 'Пресеты агента',
+  title: 'Разрешения',
   intro: 'Настройка и просмотр установленных плагинов.',
   tabs: 'Виды плагинов',
   configurableTab: 'Конфигурация плагинов',
-  empty: 'В этой среде нет доступных настроек плагинов.',
+  empty: 'Нет доступных плагинов.',
   overridden: 'Переопределено',
   reset: 'Сбросить к значениям по умолчанию',
   readOnly: 'В этой среде настройки доступны только для чтения.',
-  expand: 'Показать настройки',
-  collapse: 'Скрыть настройки',
+  expand: 'Развернуть',
+  collapse: 'Свернуть',
   save: 'Сохранить',
   saving: 'Сохранение…',
   discard: 'Отменить изменения',
@@ -172,7 +172,7 @@ export const ru: Record<PluginsSettingsLocaleKey, string> = {
   subagentModelSelectionTitle: 'Субагенты',
   subagentModelSelectionDescription: 'Управление выбором моделей для субагентов.',
   subagentModelSelectionToggle: 'Разрешить агентам выбирать модели для субагентов',
-  subagentModelSelectionChoose: 'При включении агенты могут выбирать провайдера и модель для каждого субагента. Применяется к новым сессиям.',
+  subagentModelSelectionChoose: 'При включении агенты могут выбирать провайдера и модель для каждого субагента.',
   subagentModelSelectionAllowed: 'Разрешённые модели',
   subagentModelSelectionLoading: 'Загрузка моделей…',
   subagentModelSelectionLoadFailed: 'Не удалось загрузить модели.',

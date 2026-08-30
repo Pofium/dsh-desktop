@@ -7,7 +7,7 @@
 /** Simplified Chinese dictionary (the key-set source of truth). */
 export const zh = {
   'command': '指令',
-  'skill': 'Навыки',
+  'skill': '技能',
   'subagent': '子智能体',
   'loading': '正在加载…',
   'drill.aria': '进入目录',
@@ -35,13 +35,13 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'command': 'Commands',
-  'skill': 'Навыки',
-  'subagent': 'Subagents',
-  'loading': 'Loading…',
-  'drill.aria': 'Browse folder',
-  'drill.hint': 'Browse folder',
+  command: 'Команды',
+  skill: 'Навыки',
+  subagent: 'Субагенты',
+  loading: 'Загрузка…',
+  'drill.aria': 'Просмотр папки',
+  'drill.hint': 'Просмотр папки',
   'drill.key': 'Tab',
-  'crumbs.aria': 'Folder navigation',
-  'suggestions.aria': 'Trigger suggestions',
+  'crumbs.aria': 'Навигация по папкам',
+  'suggestions.aria': 'Подсказки триггеров',
 } satisfies Record<MenuKey, string>

@@ -25,7 +25,10 @@ export const en: Record<keyof typeof zh, string> = {
   'dialog.commandFailed': 'Could not start the Session export.',
 }
 
-/** Russian Session export strings. */
+/** Stable locale keys consumed by the shared modal. */
+export type SessionLogDownloadKey = keyof typeof zh
+
+/** Russian dictionary, checked complete against the zh key set. */
 export const ru: Record<keyof typeof zh, string> = {
   'header.action': 'Лог сессии',
   'dialog.preparingTitle': 'Экспорт сессии',
@@ -36,7 +39,3 @@ export const ru: Record<keyof typeof zh, string> = {
   'dialog.close': 'Закрыть',
   'dialog.commandFailed': 'Не удалось запустить экспорт сессии.',
 }
-
-/** Stable locale keys consumed by the shared modal. */
-export type SessionLogDownloadKey = keyof typeof zh
-

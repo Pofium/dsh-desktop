@@ -29,13 +29,12 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'search.placeholder': 'Поиск…',
+  'search.placeholder': 'Поиск сессий…',
   'search.aria': 'Фильтр параметров',
-  'status.loading': 'Загрузка параметров…',
+  'status.loading': 'Обновление списка моделей…',
   'status.applying': 'Применение…',
   'status.empty': 'Нет параметров',
   'overlay.aria': 'Параметры /{command}',
   'listbox.aria': 'Совпадения /{command}',
   'notice.imagesUnsupported': '/{command} не принимает прикрепленные изображения; удалите их',
 } satisfies Record<CommandKey, string>
-

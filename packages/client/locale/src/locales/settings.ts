@@ -17,3 +17,4 @@ export const en = {
 export const ru = {
   'language.title': 'Язык интерфейса',
 } satisfies Record<SettingsLocaleKey, string>
+

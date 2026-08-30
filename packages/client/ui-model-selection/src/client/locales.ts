@@ -12,9 +12,9 @@
 export const zh = {
   'command.description': '选择本会话使用的模型',
   'option.loadError': '目录加载失败：{message}',
-  'trigger.fallback': 'Выбрать модель',
+  'trigger.fallback': '选择模型',
   'trigger.loading': '正在加载模型…',
-  'trigger.selectAria': 'Выбрать модель',
+  'trigger.selectAria': '选择模型',
   'trigger.aria': '选择模型，当前 {model}',
   'trigger.ariaEffort': '选择模型，当前 {model}，推理等级 {effort}',
   'menu.aria': '模型与推理等级',
@@ -57,7 +57,7 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'command.description': 'Select the model for this conversation',
+  'command.description': 'Выбрать модель для этого диалога',
   'option.loadError': 'Ошибка загрузки каталога: {message}',
   'trigger.fallback': 'Выбрать модель',
   'trigger.loading': 'Загрузка моделей…',
@@ -67,7 +67,7 @@ export const ru = {
   'menu.aria': 'Модель и уровень рассуждений',
   'menu.model': 'Модель',
   'menu.effort': 'Уровень рассуждений',
-  'effort.providerDefault': 'Default',
+  'effort.providerDefault': 'По умолчанию',
   'status.loading': 'Обновление списка моделей…',
   'error.action': 'Ошибка работы с моделью: {message}',
   'action.reload': 'Перезагрузить',

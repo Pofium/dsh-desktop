@@ -25,10 +25,10 @@ export const en = {
 
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
-  'chip.label': 'Plan',
-  'chip.on.aria': 'Plan mode on, press to turn off',
-  'chip.on.title': 'Plan mode on — click to turn off (/plan off)',
-  'chip.off.aria': 'Plan mode off, press to turn on',
-  'chip.off.title': 'Plan mode off — click to turn on (/plan)',
-  'chip.exitFailed': 'Failed to exit plan mode',
+  'chip.label': 'План',
+  'chip.on.aria': 'Режим плана включён, нажмите для выключения',
+  'chip.on.title': 'Режим плана включён — нажмите для выключения (/plan off)',
+  'chip.off.aria': 'Режим плана выключен, нажмите для включения',
+  'chip.off.title': 'Режим плана выключен — нажмите для включения (/plan)',
+  'chip.exitFailed': 'Не удалось выйти из режима плана',
 } satisfies Record<PlanKey, string>

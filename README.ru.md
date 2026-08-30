@@ -2,113 +2,62 @@
 
 [English](README.md) | **Русский** | [中文](README.zh.md)
 
-**DeepSeek Harness (`dsh`)** — открытая расширяемая среда для автономных ИИ-агентов (AI Agent Harness), разработанная [DeepSeek AI](https://deepseek.com).
+DeepSeek Harness (`dsh`) — это агентная среда (agent harness) с открытым исходным кодом, разработанная [DeepSeek AI](https://deepseek.com).
 
-Вся система построена на микроядерной модульной архитектуре **«всё является плагином»** под управлением [Cordis](https://github.com/cordiverse/cordis). Дизайн архитектуры подробно описан в научной статье [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
+Архитектура системы построена по принципу **«всё является плагином»** на базе фреймворка [Cordis](https://github.com/cordiverse/cordis), концепция которого описана в статье [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
 
-Официальная документация: [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
+Документация: [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
 
----
+## Предварительная версия для разработчиков (Developer Preview)
 
-## 🌟 Возможности и улучшения в форке Desktop
+DeepSeek Harness находится на стадии _developer preview_ и активно развивается. **ВОЗМОЖНЫ ИЗМЕНЕНИЯ, НАРУШАЮЩИЕ ОБРАТНУЮ СОВМЕСТИМОСТЬ.**
 
-- 🌐 **Полная русская локализация**:
-  - Полностью переведён интерфейс: панели сессий, настройки, дерево инструментов, статистика токенов, чат, модальные окна, ошибки.
-  - Динамическое переключение языков: **Русский**, **English**, **中文** прямо в настройках (`Настройки` → `Язык интерфейса`).
-- 💻 **Нативное десктопное приложение для Windows (Electron)**:
-  - Автономный исполняемый файл `DeepSeek Harness.exe` с кастомной иконкой.
-  - Запуск в виде нативного GUI-окна Windows (GUI Subsystem 2 — без черных окон терминала).
-  - Полноценное контекстное меню по правому клику мыши (Отменить, Повторить, Вырезать, Копировать, Вставить, Выделить всё).
-  - Встроенная проверка орфографии (Spellchecker) для русского и английского языков с вариантами исправлений по правому клику.
-  - Бесшумный запуск терминалов и дочерних процессов в фоне (`windowsHide: true`).
-- 💽 **Полноценный Windows MSI Инсталлятор (WiX Toolset)**:
-  - Нативный `.msi` пакет с возможностью выбора: установка **«Только для меня»** (Per-User, `%LocalAppData%\Programs`, без прав админа) или **«Для всех пользователей»** (Per-Machine, `Program Files`).
-  - Автоматическое создание ярлыков на Рабочем столе и в меню «Пуск» с фирменной иконкой.
-  - Корректная регистрация в Windows «Установка и удаление программ» с чистым удалением.
-- ⚡ **Поддержка современных рантаймов**:
-  - Полная совместимость с Node.js 22 и Node.js 24 (включая нативный декомпрессор `zstd`).
+Перед запуском проекта ознакомьтесь с [уведомлением о безопасности](SAFETY.md).
 
----
+## Запуск
 
-## 🚀 Быстрый запуск и установка
+### Запуск через `npm`
 
-### 1. Установка через Windows MSI Инсталлятор (Рекомендуется)
-
-Скачайте готовый `.msi` файл из раздела [Releases](https://github.com/Pofium/dsh-desktop/releases):
-* **`DeepSeek-Harness-v0.1.2-windows-x64.msi`** — запустите файл и следуйте шагам мастера установки.
-
-### 2. Портативная версия (без установки)
-
-Скачайте архив `DeepSeek-Harness-v0.1.2-windows-x64.zip`, распакуйте и запустите:
-* `DeepSeek Harness.exe` или `start-app.cmd`.
-
----
-
-### 3. Запуск веб-сервера через npm
-
-Установите `Node.js` (рекомендуется v22+ или v24) и выполните:
+Установите `Node.js`, затем выполните:
 
 ```sh
 npx @deepseek-ai/dsh web
 ```
 
-По умолчанию откроется веб-интерфейс по адресу `http://127.0.0.1:3080`.
+Эта команда запускает веб-интерфейс (Web UI) по умолчанию на `http://127.0.0.1:3080` и открывает его в браузере при локальном запуске. При запуске через SSH выводится только URL хоста, так как локальный порт пробрасывается SSH-клиентом или редактором. Передайте флаг `--no-open`, чтобы запустить сервер без открытия браузера. См. [руководство по Web UI](docs/user/guide/index.md).
 
----
+### Запуск из исходного кода
 
-### 4. Сборка из исходников
+Для запуска из клонированного репозитория:
 
 ```sh
-# 1. Клонировать репозиторий
-git clone https://github.com/Pofium/dsh-desktop.git
-cd dsh-desktop
-
-# 2. Установить зависимости
+git clone https://github.com/deepseek-ai/deepseek-harness.git
+cd deepseek-harness
 pnpm install
-
-# 3. Собрать библиотеки и фронтенд
 pnpm run build
-
-# 4. Запустить агент
 pnpm dsh web
 ```
 
----
+Команда `pnpm run build` подготавливает артефакты репозитория. `pnpm dsh web` использует эти собранные артефакты без повторной сборки.
 
-## ⚙️ Настройка API ключей
+## Сообщество и поддержка
 
-Создайте файл `.env` в корне проекта (по образцу `.env.example`):
+- Отправляйте отзывы или отчеты об ошибках через [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions).
+- Добавьте топик [`dsh-plugin`](https://github.com/topics/dsh-plugin) к репозиторию вашего плагина для улучшения его видимости.
+- Присоединяйтесь к <a href="https://discord.gg/Ycq5dCaS4">Discord-сообществу DeepSeek Harness</a>.
 
-```env
-# DeepSeek API Ключ
-DEEPSEEK_API_KEY=ваш_api_ключ_здесь
+## Участие в разработке (Contributing)
 
-# (Опционально) Кастомный API Base URL
-# DEEPSEEK_BASE_URL=https://api.deepseek.com/v1
-```
+См. [CONTRIBUTING.md](CONTRIBUTING.md).
 
----
+## Разработка
 
-## 🛠️ Сборка собственного Desktop Exe и MSI
+Начните с [руководства по разработке](docs/development.md) и [документации по архитектуре](docs/architecture.md).
 
-Для сборки десктопного приложения и инсталлятора:
+Для ИИ-агентов следуйте [AGENTS.md](AGENTS.md).
 
-```powershell
-# Сборка приложения
-node dist-exe/package-app.mjs
+## Лицензия
 
-# Сборка Windows MSI инсталлятора
-npm run build:desktop:msi
+[MIT](LICENSE)
 
-# Сборка портативного ZIP архива
-npm run build:desktop:zip
-```
-
-Готовые дистрибутивы будут сформированы в папке `dist-release/`.
-
----
-
-## 📄 Лицензия
-
-Проект распространяется под лицензией [MIT](LICENSE).
-Уведомления о сторонних компонентах приведены в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Сторонние зависимости и их лицензии описаны в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
