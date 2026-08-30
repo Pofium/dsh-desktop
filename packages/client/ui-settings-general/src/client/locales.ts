@@ -34,3 +34,19 @@ export const en = {
   'connection.reconnect': 'Disconnected, reconnect now',
   'connection.restart': 'Connecting, restart now',
 } satisfies Record<SettingsKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  trigger: 'Agent Team',
+  title: 'Разрешения',
+  close: 'Закрыть',
+  openDocument: 'Открыть файл конфигурации',
+  'openDocument.error': 'Не удалось открыть файл конфигурации',
+  'general.nav': 'Общие настройки',
+  'connection.error': 'Отключено',
+  'connection.retry': 'Переподключиться',
+  'connection.connecting': 'Подключение…',
+  'connection.connected': 'Подключено',
+  'connection.reconnect': 'Отключено, переподключиться',
+  'connection.restart': 'Подключение, перезапустить',
+} satisfies Record<SettingsKey, string>

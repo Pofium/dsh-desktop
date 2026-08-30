@@ -43,3 +43,20 @@ export const en = {
   'error.load': 'Could not load feedback',
   'error.generic': 'Could not save feedback',
 } satisfies Record<MessageFeedbackKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  'action.like': 'Хороший ответ',
+  'action.likeActive': 'Удалить оценку',
+  'action.dislike': 'Плохой ответ',
+  'action.dislikeActive': 'Удалить оценку',
+  'note.open': 'Добавить заметку',
+  'note.dialog': 'Отзыв',
+  'note.placeholder': 'Что было хорошо или что пошло не так? (необязательно)',
+  'note.save': 'Сохранить',
+  'note.cancel': 'Отмена',
+  'note.aria': 'Заметка к отзыву',
+  'error.conflict': 'Отзыв был изменён в другом месте; показано актуальное состояние',
+  'error.load': 'Не удалось загрузить отзыв',
+  'error.generic': 'Не удалось сохранить отзыв',
+} satisfies Record<MessageFeedbackKey, string>

@@ -32,3 +32,16 @@ export const en = {
   'crumbs.aria': 'Folder navigation',
   'suggestions.aria': 'Trigger suggestions',
 } satisfies Record<MenuKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  command: 'Команды',
+  skill: 'Навыки',
+  subagent: 'Субагенты',
+  loading: 'Загрузка…',
+  'drill.aria': 'Просмотр папки',
+  'drill.hint': 'Просмотр папки',
+  'drill.key': 'Tab',
+  'crumbs.aria': 'Навигация по папкам',
+  'suggestions.aria': 'Подсказки триггеров',
+} satisfies Record<MenuKey, string>

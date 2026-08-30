@@ -61,3 +61,19 @@ export const accessEn = {
   'confirm.cancel': 'Cancel',
   'confirm.enable': 'Enable Full access',
 } satisfies Record<PermissionAccessKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  title: 'Разрешения',
+  description: 'Описание задачи',
+  loading: 'Загрузка…',
+  unavailable: 'Недоступно',
+  'preset.readOnly': 'Только чтение',
+  'preset.workspaceWrite': 'Запись в рабочую область',
+  'preset.fullAccess': 'Полный доступ',
+  'confirm.title': 'Включить полный доступ?',
+  'confirm.description': 'Полный доступ позволяет новым сессиям сократить количество подтверждений и выполнять больше действий напрямую. Используйте только для доверенных задач.',
+  'confirm.acknowledge': 'Я понимаю риски и хочу продолжить',
+  'confirm.cancel': 'Отмена',
+  'confirm.enable': 'Включить полный доступ',
+} satisfies Record<PermissionSettingsKey, string>

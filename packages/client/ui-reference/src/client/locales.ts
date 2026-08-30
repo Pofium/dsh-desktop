@@ -48,3 +48,17 @@ export const en = {
   'time.months': '{n}mo',
   'time.years': '{n}y',
 } satisfies Record<ReferenceKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  'section.files': 'Файлы и папки',
+  'section.sessions': 'Сессии',
+  'candidate.noCwd': '(нет рабочей папки)',
+  'crumb.root': 'Рабочие области',
+  'time.now': 'Только что',
+  'time.minutes': '{n} мин',
+  'time.hours': '{n} ч',
+  'time.days': '{n} дн',
+  'time.months': '{n} мес',
+  'time.years': '{n} г',
+} satisfies Record<ReferenceKey, string>
