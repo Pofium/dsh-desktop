@@ -12,9 +12,9 @@
 export const zh = {
   'command.description': '选择本会话使用的模型',
   'option.loadError': '目录加载失败：{message}',
-  'trigger.fallback': '选择模型',
+  'trigger.fallback': 'Выбрать модель',
   'trigger.loading': '正在加载模型…',
-  'trigger.selectAria': '选择模型',
+  'trigger.selectAria': 'Выбрать модель',
   'trigger.aria': '选择模型，当前 {model}',
   'trigger.ariaEffort': '选择模型，当前 {model}，推理等级 {effort}',
   'menu.aria': '模型与推理等级',
@@ -53,4 +53,26 @@ export const en = {
   'empty.models': 'No models available.',
   'blocked.composer': 'This model is unavailable — select one to continue',
   'empty.efforts': 'This model provides no reasoning effort levels.',
+} satisfies Record<ModelKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  'command.description': 'Select the model for this conversation',
+  'option.loadError': 'Ошибка загрузки каталога: {message}',
+  'trigger.fallback': 'Выбрать модель',
+  'trigger.loading': 'Загрузка моделей…',
+  'trigger.selectAria': 'Выбрать модель',
+  'trigger.aria': 'Выбор модели, текущая {model}',
+  'trigger.ariaEffort': 'Выбор модели, текущая {model}, уровень рассуждений {effort}',
+  'menu.aria': 'Модель и уровень рассуждений',
+  'menu.model': 'Модель',
+  'menu.effort': 'Уровень рассуждений',
+  'effort.providerDefault': 'Default',
+  'status.loading': 'Обновление списка моделей…',
+  'error.action': 'Ошибка работы с моделью: {message}',
+  'action.reload': 'Перезагрузить',
+  'warning.groupLoad': 'Ошибка загрузки {name}: {message}',
+  'empty.models': 'Нет доступных моделей.',
+  'blocked.composer': 'Текущая модель недоступна, выберите другую модель',
+  'empty.efforts': 'Текущая модель не поддерживает уровни рассуждений.',
 } satisfies Record<ModelKey, string>

@@ -19,7 +19,7 @@ export const zh = {
   'member.empty': '空成员名',
   'member.open': '打开 {name}',
   'status.running': '运行中',
-  'status.completed': '已完成',
+  'status.completed': 'Завершено',
   'status.failed': '失败',
   'status.cancelled': '已取消',
   'status.interrupted': '已中断',
@@ -49,3 +49,25 @@ export const en: Record<WorkflowRunKey, string> = {
 
 /** Union of this namespace's dictionary keys. */
 export type WorkflowRunKey = keyof typeof zh
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru: Record<WorkflowRunKey, string> = {
+  'run.title': '{name}',
+  'run.members.one': '{count} участник',
+  'run.members.other': '{count} участников',
+  'run.empty': 'Нет запущенных участников',
+  'phase.unassigned': 'Без этапа',
+  'phase.empty': 'Пустое название этапа',
+  'statusCount.running': 'Выполняется {count}',
+  'statusCount.completed': 'Завершено {count}',
+  'statusCount.failed': 'Ошибка {count}',
+  'statusCount.cancelled': 'Отменено {count}',
+  'statusCount.interrupted': 'Прервано {count}',
+  'member.empty': 'Пустое имя участника',
+  'member.open': 'Открыть {name}',
+  'status.running': 'Выполняется',
+  'status.completed': 'Завершено',
+  'status.failed': 'Ошибка',
+  'status.cancelled': 'Отменено',
+  'status.interrupted': 'Прервано',
+}

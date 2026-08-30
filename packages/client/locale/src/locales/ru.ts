@@ -1,8 +1,7 @@
 import type { CommonKey } from './zh.ts'
-import { en } from './en.ts'
 
-/** ru base dictionary for the common namespace: cross-feature standard words. */
-export const ru: Record<CommonKey, string> = {
+/** ru base dictionary for the common namespace, checked complete against the zh key set. */
+export const ru = {
   'ok': 'ОК',
   'cancel': 'Отмена',
   'close': 'Закрыть',
@@ -14,10 +13,10 @@ export const ru: Record<CommonKey, string> = {
   'copy.path': 'Копировать путь к свойству',
   'copy.prettyJson': 'Копировать форматированный JSON',
   'copy.compactJson': 'Копировать компактный JSON',
-  'copy.optionsHint': '{action}; правый клик для вариантов копирования',
+  'copy.optionsHint': '{action}; правый клик для выбора формата',
   'retry': 'Повторить',
   'loading': 'Загрузка…',
-  'load.failed': 'Не удалось загрузить',
+  'load.failed': 'Ошибка загрузки',
   'submit': 'Отправить',
   'submitting': 'Отправка…',
   'next': 'Далее',
@@ -31,16 +30,15 @@ export const ru: Record<CommonKey, string> = {
   'collapse': 'Свернуть',
   'expand': 'Развернуть',
   'back': 'Назад',
-  'brand.localBuild': 'DeepSeek Harness',
+  'brand.localBuild': 'DSH Локальная сборка',
   'unknown': 'Неизвестно',
   'none': 'Нет',
-  'truncated': 'Усечено',
-  'connection.reconnecting': 'Соединение потеряно; переподключение…',
-  'json.collapseNode': 'Свернуть JSON узел',
-  'json.expandNode': 'Развернуть JSON узел',
+  'truncated': 'Обрезано',
+  'json.collapseNode': 'Свернуть узел JSON',
+  'json.expandNode': 'Развернуть узел JSON',
   'json.label': 'JSON',
   'markdown.footnotes': 'Сноски',
-  'markdown.truncatedCharacters': '… усечено до {total} символов',
+  'markdown.truncatedCharacters': '… обрезано на {total} символах',
   'number.thousand': '{value} тыс.',
   'number.million': '{value} млн',
-}
+} satisfies Record<CommonKey, string>

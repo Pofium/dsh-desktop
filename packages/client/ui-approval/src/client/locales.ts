@@ -20,3 +20,8 @@ export const en = {
   reject: 'Reject',
   allowOnce: 'Allow once',
 } satisfies Record<ApprovalKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  'detail.aria': 'Approval details',
+} satisfies Record<ApprovalKey, string>

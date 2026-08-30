@@ -12,7 +12,7 @@ export const zh = {
   'list.aria': '后台任务',
   'status.running': '运行中',
   'status.stopping': '正在停止',
-  'status.completed': '已完成',
+  'status.completed': 'Завершено',
   'status.killed': '已取消',
   'status.failed': '已失败',
   'duration.seconds': '{seconds}秒',
@@ -43,3 +43,22 @@ export const en: Record<JobKey, string> = {
 
 /** Key domain of the `job` namespace (zh is the source of truth). */
 export type JobKey = keyof typeof zh
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru: Record<JobKey, string> = {
+  'count.live.one': '{count} фоновая задача выполняется',
+  'count.live.other': '{count} фоновых задач выполняется',
+  'count.idle.one': '{count} фоновая задача',
+  'count.idle.other': '{count} фоновых задач',
+  'list.aria': 'Фоновые задачи',
+  'status.running': 'выполняется',
+  'status.stopping': 'останавливается',
+  'status.completed': 'завершено',
+  'status.killed': 'отменено',
+  'status.failed': 'ошибка',
+  'duration.seconds': '{seconds} с',
+  'duration.minutes': '{minutes} мин {seconds} с',
+  'duration.hours': '{hours} ч {minutes} мин',
+  'duration.title.live': 'Выполняется {duration}',
+  'duration.title.done': 'Заняло {duration}',
+}

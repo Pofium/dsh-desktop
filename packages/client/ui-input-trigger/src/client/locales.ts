@@ -7,7 +7,7 @@
 /** Simplified Chinese dictionary (the key-set source of truth). */
 export const zh = {
   'command': '指令',
-  'skill': '技能',
+  'skill': 'Навыки',
   'subagent': '子智能体',
   'loading': '正在加载…',
   'drill.aria': '进入目录',
@@ -24,6 +24,19 @@ export type MenuKey = keyof typeof zh
 export const en = {
   'command': 'Commands',
   'skill': 'Skills',
+  'subagent': 'Subagents',
+  'loading': 'Loading…',
+  'drill.aria': 'Browse folder',
+  'drill.hint': 'Browse folder',
+  'drill.key': 'Tab',
+  'crumbs.aria': 'Folder navigation',
+  'suggestions.aria': 'Trigger suggestions',
+} satisfies Record<MenuKey, string>
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru = {
+  'command': 'Commands',
+  'skill': 'Навыки',
   'subagent': 'Subagents',
   'loading': 'Loading…',
   'drill.aria': 'Browse folder',

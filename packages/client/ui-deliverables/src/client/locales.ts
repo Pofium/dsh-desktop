@@ -23,3 +23,12 @@ export const en: Record<DeliverablesKey, string> = {
 
 /** Union of this namespace's dictionary keys. */
 export type DeliverablesKey = keyof typeof zh
+
+/** Russian dictionary, checked complete against the zh key set. */
+export const ru: Record<DeliverablesKey, string> = {
+  'produced.label': 'Результаты',
+  'produced.moreOne': '+ 1 файл',
+  'produced.more': '+ {count} файлов',
+  'produced.open': 'Открыть {name}',
+  'produced.showInFolder': 'Показать в папке',
+}
