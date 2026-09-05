@@ -80,8 +80,9 @@ export {
   inactiveRows, leakedServices, livePresetMounts, mountPreset, serviceForAgent, standingMountFor,
   type JoinedPresetMount, type PresetMount,
 } from './mount.ts'
-export { copyComposition, deleteComposition, readComposition, writableRoot } from './authoring.ts'
-export { agentPresetProjectionDefinition } from './session.ts'
+export { copyComposition, deleteComposition, InvalidPresetIdError, PresetExistsError, PresetNotWritableError, readComposition, writableRoot } from './authoring.ts'
+export { agentPresetProjectionDefinition, resolveSessionPreset, type PresetBearingSession } from './session.ts'
+export { PresetMountError, UnknownPresetError } from './preset.ts'
 export type { AgentPreset, Config, PresetRoot, PresetTrust } from './preset.ts'
 
 declare module '@deepseek-ai/cordis' {

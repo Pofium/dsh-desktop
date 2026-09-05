@@ -68,3 +68,29 @@ export interface Config {
    */
   includeUserRoot: boolean
 }
+
+/** The preset id named in a request is not in the roster. */
+export class UnknownPresetError extends Error {
+  /** The id that was requested. */
+  readonly presetId: string
+  /** Ids the roster does supply, for the caller to offer instead. */
+  readonly available: readonly string[]
+  constructor(presetId: string, available: readonly string[]) {
+    super(`agent-presets: preset "${presetId}" not found (available: ${available.join(', ') || 'none'})`)
+    this.presetId = presetId
+    this.available = available
+  }
+}
+
+/** A preset exists but its composition cannot be installed. */
+export class PresetMountError extends Error {
+  /** The id whose mount failed. */
+  readonly presetId: string
+  /** Why the composition could not be installed. */
+  readonly reason: string
+  constructor(presetId: string, reason: string, options?: { cause?: unknown }) {
+    super(`agent-presets: preset "${presetId}" failed to mount: ${reason}`, options)
+    this.presetId = presetId
+    this.reason = reason
+  }
+}

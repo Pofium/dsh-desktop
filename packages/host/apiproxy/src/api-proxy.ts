@@ -81,12 +81,12 @@ import type {} from '@deepseek-ai/dsh-skill'
 // The settings/credentials seams: brand guards run at this wire boundary; the
 // service reads stay optional (`ctx.get`) so a composition without either
 // provider still serves every other domain.
-import { SettingsConflictError, settingsNamespace } from '@deepseek-ai/dsh-settings'
+import { parseSettingsNamespace, SettingsConflictError } from '@deepseek-ai/dsh-settings'
 import type { SettingsDescriptor, SettingsNamespace, SettingsPathOp } from '@deepseek-ai/dsh-settings'
 import { credentialRef } from '@deepseek-ai/dsh-credentials'
 // Value edge: the rename impl narrows the title service's validation failure; the import also resolves `ctx.get('sessionTitle')`.
 import { SessionTitleInvalidError } from '@deepseek-ai/dsh-session-title'
-import type { CallId } from '@deepseek-ai/dsh-llm/brand'
+import type { ToolCallId } from '@deepseek-ai/dsh-llm/brand'
 import type { ScopeKey } from '@deepseek-ai/dsh-scope'
 import type { ApprovalOutcome, ApprovalRequestId } from '@deepseek-ai/dsh-user-approval'
 // Side-effect type import: resolves the `approval/request` waterfall and
@@ -624,7 +624,7 @@ interface PendingApproval {
   sessionId: SessionId
   approvalId: ApprovalRequestId
   toolName: string
-  callId?: CallId
+  callId?: ToolCallId
   reason?: string
   resolve(outcome: ApprovalOutcome): void
 }
@@ -816,7 +816,7 @@ function detachedProjectionsFor(
 ): SessionProjectionsBlock | undefined {
   const registry = ctx.get('sessionProjections')
   if (registry === undefined) return undefined
-  return registry.restore({}, events, 0).snapshot
+  return registry.restore({}, events, 0, { id: '' } as SessionHeader).snapshot
 }
 
 /**
@@ -1195,7 +1195,7 @@ export function createApiProxy(ctx: Context, defaults: ApiProxyDefaults): ApiPro
     agent: Agent | undefined,
   ): boolean => hasApiRemoteSubagentOwner(ctx, session, agent)
   const subagentOwnershipError = (sessionId: SessionId): RpcError =>
-    apiRemoteSubagentOwnershipError(sessionId)
+    apiRemoteSubagentOwnershipError(sessionId) as unknown as RpcError
   const inspectServable = (sessionId: SessionId): Promise<{ meta: SessionHeader; events: SessionEvent[] }> =>
     inspectApiRemoteSession(ctx, sessionId)
   // Cold resume composes the preset the session recorded, for the same reason
@@ -1915,7 +1915,7 @@ export function createApiProxy(ctx: Context, defaults: ApiProxyDefaults): ApiPro
     }
     let branded: SettingsNamespace
     try {
-      branded = settingsNamespace(ns)
+      branded = parseSettingsNamespace(ns)
     } catch (error: unknown) {
       // A malformed name can address no registration, so it fails exactly as
       // an unregistered one does.

@@ -16,6 +16,7 @@ import type { SettingsNamespace, SettingsUpdateSource } from './types.ts'
 export { redactSecrets } from './redact.ts'
 export type { RedactedSecret, RedactedValue } from './redact.ts'
 export type { SettingsNamespace, SettingsUpdateSource } from './types.ts'
+export { parseSettingsNamespace }
 
 const NAMESPACE_PATTERN = /^[a-z][a-z0-9-]*$/
 type LowercaseLetter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm'
@@ -35,7 +36,7 @@ type SettingsNamespaceInput<Value extends string> = Value extends SettingsNamesp
       ? ValidNamespaceTail<Rest> extends true ? Value : never
       : never
 
-function parseSettingsNamespace(value: string): SettingsNamespace {
+export function parseSettingsNamespace(value: string): SettingsNamespace {
   if (!NAMESPACE_PATTERN.test(value)) {
     throw new TypeError(`settings namespace "${value}" must match ${String(NAMESPACE_PATTERN)}`)
   }

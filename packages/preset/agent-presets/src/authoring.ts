@@ -189,3 +189,33 @@ export async function deleteComposition(
   }
   await rm(dir, { recursive: true, force: true })
 }
+
+/** A preset id that cannot be used as a directory name under a root. */
+export class InvalidPresetIdError extends Error {
+  /** The rejected id. */
+  readonly presetId: string
+  constructor(presetId: string) {
+    super(`agent-presets: preset id ${JSON.stringify(presetId)} must match ${String(PRESET_ID)} — the id is a directory name, so anything else could escape the preset root`)
+    this.presetId = presetId
+  }
+}
+
+/** A copy target that is already occupied — a copy never overwrites. */
+export class PresetExistsError extends Error {
+  /** The id that is already taken. */
+  readonly presetId: string
+  constructor(presetId: string) {
+    super(`agent-presets: preset "${presetId}" already exists — a copy never overwrites; delete the existing preset first or choose another id`)
+    this.presetId = presetId
+  }
+}
+
+/** Authoring was attempted where the deployment allows none. */
+export class PresetNotWritableError extends Error {
+  /** The id authoring was attempted on. */
+  readonly presetId: string
+  constructor(presetId: string, reason: string) {
+    super(`agent-presets: preset "${presetId}" cannot be written: ${reason}`)
+    this.presetId = presetId
+  }
+}
