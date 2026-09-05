@@ -47,6 +47,13 @@
     // rules make that path depend on this project reference.
     { "path": "./packages/compaction/compaction" },
     { "path": "./packages/client/store" },
+    { "path": "./packages/api/gateway/tsconfig.client.json" },
+    { "path": "./packages/api/remotes/tsconfig.client.json" },
+    { "path": "./packages/api/session-controller/tsconfig.client.json" },
+    { "path": "./packages/api/workspace-controller/tsconfig.client.json" },
+    { "path": "./packages/util/values" },
+    { "path": "./packages/util/time" },
+    { "path": "./packages/util/deque" },
     { "path": "./packages/client/ui-slots" },
     { "path": "./packages/client/ui-attachment" },
     { "path": "./packages/client/ui-primitives" },

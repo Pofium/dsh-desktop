@@ -246,7 +246,7 @@ export function applyTeamEvent(state: TeamFoldState, event: SessionEvent): void 
       if (prior !== undefined && task.revision !== prior.revision + 1) {
         throw new Error(`team task "${task.id}" revision is not contiguous`)
       }
-      assertTaskGraphCandidate(state.tasks, task)
+      assertTaskGraphCandidate([...state.tasks.values()], task)
       const match = numericTaskIdPattern.exec(task.id)
       if (match !== null) {
         const number = Number(match[1])
