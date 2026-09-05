@@ -17,7 +17,7 @@ import type { Browser, Page } from 'playwright'
 import { chromium } from 'playwright'
 import { afterAll, beforeAll, describe, expect, it, onTestFailed } from 'vitest'
 import { SessionId } from '@deepseek-ai/dsh-session'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
+import { parseSettingsNamespace } from '@deepseek-ai/dsh-settings'
 import { launchWebScaffold, watchConsole, type WebScaffold } from './scaffold.ts'
 import { ZH_BROWSER_LOCALE, connectFreshWorkspaceZh, saveFailureShot } from './support.ts'
 
@@ -62,7 +62,7 @@ describe('web e2e: the composer model switch is the default for later sessions',
     // Declared through the settings seam rather than the Models page: this
     // scenario is about the composer, and the declaring flow is covered by
     // models-settings.e2e.
-    await scaffold.ctx.settings.update(settingsNamespace('llm-pi-ai'), {
+    await scaffold.ctx.settings.update(parseSettingsNamespace('llm-pi-ai'), {
       providers: {
         [START_ROUTE]: {
           displayName: 'Origin Gateway',
@@ -136,7 +136,7 @@ describe('web e2e: the composer model switch is the default for later sessions',
     // default still names the route, and nothing serves it any more.
     // `replace`, not `update`: a merge patch of `{providers: {}}` leaves every
     // stored profile in place.
-    await scaffold.ctx.settings.replace(settingsNamespace('llm-pi-ai'), { providers: {} })
+    await scaffold.ctx.settings.replace(parseSettingsNamespace('llm-pi-ai'), { providers: {} })
 
     await expect.poll(async () => box.isEnabled(), { timeout: 15_000 }).toBe(false)
     expect(await box.getAttribute('data-placeholder')).toBe('当前模型不可用，请先选择模型')

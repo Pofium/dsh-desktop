@@ -10,7 +10,7 @@ import { SessionId } from '@deepseek-ai/dsh-session'
 import type { Agent } from '@deepseek-ai/dsh-agent'
 import type { PatchOptions } from '@deepseek-ai/cordis-plugin-include'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
+import { parseSettingsNamespace } from '@deepseek-ai/dsh-settings'
 import { SUBAGENT_MODEL_SELECTION_SETTINGS_NAMESPACE } from '@deepseek-ai/dsh-tool-subagent/model-selection-settings'
 import { SETTINGS_NAMESPACE, SHIPPED_PRESET_ROOT } from '@deepseek-ai/dsh-agent-presets'
 import { applyChildComposition, childSessionMeta } from '@deepseek-ai/dsh-subagent'
@@ -864,7 +864,7 @@ describe('the default preset as a user setting', () => {
   it('composes an unnamed session from the stored default, not the composed one', async () => {
     expect(ctx.agentPresets.defaultId).toBe('standard')
 
-    await ctx.settings.update(settingsNamespace(SETTINGS_NAMESPACE), { default: 'minimal' })
+    await ctx.settings.update(parseSettingsNamespace(SETTINGS_NAMESPACE), { default: 'minimal' })
     try {
       expect(ctx.agentPresets.defaultId).toBe('minimal')
 
@@ -883,7 +883,7 @@ describe('the default preset as a user setting', () => {
       // The context is shared with the rest of the file. `replace({})` drops
       // the user section wholesale so the field re-inherits the composition
       // base; `update` merges, and would leave the override standing.
-      await ctx.settings.replace(settingsNamespace(SETTINGS_NAMESPACE), {})
+      await ctx.settings.replace(parseSettingsNamespace(SETTINGS_NAMESPACE), {})
     }
 
     expect(ctx.agentPresets.defaultId).toBe('standard')

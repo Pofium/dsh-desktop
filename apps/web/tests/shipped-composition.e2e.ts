@@ -10,7 +10,7 @@ import { afterEach, expect, it } from 'vitest'
 import { ToolCallId } from '@deepseek-ai/dsh-llm'
 import { canonicalPath, writableRoots } from '@deepseek-ai/dsh-sandbox'
 import { SessionId } from '@deepseek-ai/dsh-session'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
+import { parseSettingsNamespace } from '@deepseek-ai/dsh-settings'
 // Empty type imports carry the tools/sandboxPolicy/approval Context merges.
 import type {} from '@deepseek-ai/dsh-tools'
 import type {} from '@deepseek-ai/dsh-sandbox-policy'
@@ -101,7 +101,7 @@ it('assembles the shipped Web transport, catalog, guidance, and defaults', async
       ],
     }
   `)
-  await ctx.settings.update(settingsNamespace('llm-deepseek'), {
+  await ctx.settings.update(parseSettingsNamespace('llm-deepseek'), {
     retryPolicy: { mode: 'always', maxRetries: 5 },
   })
   expect(ctx.llm.providerRetryPolicy('deepseek-official')).toMatchInlineSnapshot(`
@@ -112,7 +112,7 @@ it('assembles the shipped Web transport, catalog, guidance, and defaults', async
       "mode": "always",
     }
   `)
-  await ctx.settings.update(settingsNamespace('llm-pi-ai'), {
+  await ctx.settings.update(parseSettingsNamespace('llm-pi-ai'), {
     providers: {
       openai: {},
       anthropic: { retryPolicy: { mode: 'always' } },
