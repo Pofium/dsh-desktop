@@ -1,0 +1,6 @@
+# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
+# side as of the last confirmed-consistent state. Both languages carry equal authority;
+# after editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write .agents/notes/implemented/architecture/2026-09-03-desktop-brand-product-naming.md
+2026-09-03-desktop-brand-product-naming.md: 02f2677b7caea2bb81d471f416559032a3ba496a
+2026-09-03-desktop-brand-product-naming.zh.md: 1b4bb5e6e022aa5454b58f2c5456e182cf7f6535

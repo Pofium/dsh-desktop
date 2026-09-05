@@ -62,6 +62,18 @@ export const accessEn = {
   'confirm.enable': 'Enable Full access',
 } satisfies Record<PermissionAccessKey, string>
 
+/** Russian dictionary for the current-session popup gate, checked complete against the zh key set. */
+export const accessRu = {
+  'preset.readOnly': 'Только чтение',
+  'preset.workspaceWrite': 'Запись в рабочую область',
+  'preset.fullAccess': 'Полный доступ',
+  'confirm.title': 'Включить полный доступ?',
+  'confirm.description': 'Полный доступ сокращает количество подтверждений и позволяет агенту напрямую выполнять больше действий, включая чувствительные операции, изменение файлов и внешние команды. Используйте его, только если вы доверяете текущей задаче.',
+  'confirm.acknowledge': 'Я понимаю риски и хочу продолжить',
+  'confirm.cancel': 'Отмена',
+  'confirm.enable': 'Включить полный доступ',
+} satisfies Record<PermissionAccessKey, string>
+
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru = {
   title: 'Разрешения',

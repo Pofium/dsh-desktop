@@ -60,7 +60,7 @@ function resolveDshCommand() {
     }
   }
 
-  const version = '0.1.1-rc.2';
+  const version = '0.1.2-rc.1';
   const binJs = path.join(dshHome, 'runtime', version, 'lib', 'bin.js');
   log(`Checking runtime bin.js: ${binJs} exists=${fs.existsSync(binJs)}`);
   if (fs.existsSync(binJs)) {

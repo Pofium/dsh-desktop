@@ -170,7 +170,7 @@ export function AppFrame({
   const onDetailsDrag = useCallback((dx: number) => {
     actions.setDetails(detailsBase.current - dx)
   }, [actions])
-  const productTitle = process.env.DSH_CLIENT_TITLE ?? t('brand.localBuild')
+  const productTitle = process.env.DSH_CLIENT_TITLE ?? t('brand.product')
 
   return (
     <div

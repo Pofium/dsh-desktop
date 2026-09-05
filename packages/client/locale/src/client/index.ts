@@ -100,7 +100,7 @@ declare module '@deepseek-ai/cordis' {
  * English is both the locale the UI opens in when the browser names no registered
  * language (and for non-browser runs), and the dictionary consulted after the
  * active locale misses a key. One constant serves both because the shipped
- * `zh`/`en` dictionaries carry identical key sets, so neither direction can
+ * `zh`/`en`/`ru` dictionaries carry identical key sets, so neither direction can
  * leave a key unresolved; the residual case points at English rather than
  * zh because a browser naming no registered language is the reader least
  * likely to read Chinese.

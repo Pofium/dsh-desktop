@@ -30,7 +30,7 @@ export const ru = {
   'collapse': 'Свернуть',
   'expand': 'Развернуть',
   'back': 'Назад',
-  'brand.localBuild': 'DSH Локальная сборка',
+  'brand.product': 'DeepSeek Harness',
   'unknown': 'Неизвестно',
   'none': 'Нет',
   'truncated': 'Обрезано',
