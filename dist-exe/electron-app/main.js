@@ -274,7 +274,15 @@ async function startServer() {
 
   let authenticatedUrl = DSH_URL;
 
-  serverProcess = spawn(cmd.command, cmd.args, {
+  // The runtime's minimum Node (zstd in node:zlib) is newer than a system
+  // Node installed here may be; prefer the Node bundled beside this exe.
+  let spawnCommand = cmd.command;
+  const bundledNode = path.join(path.dirname(process.execPath), 'node.exe');
+  if (path.basename(cmd.command).toLowerCase() === 'node' && fs.existsSync(bundledNode)) {
+    spawnCommand = bundledNode;
+    log(`Using bundled Node: ${bundledNode}`);
+  }
+  serverProcess = spawn(spawnCommand, cmd.args, {
     stdio: ['ignore', 'pipe', 'pipe'],
     windowsHide: true,
     env: { ...process.env, BROWSER: 'none' },
