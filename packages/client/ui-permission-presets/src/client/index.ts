@@ -30,7 +30,7 @@ import type { PermissionSelect } from '@deepseek-ai/dsh-permission-presets/clien
 import { PermissionRow } from './PermissionRow.tsx'
 import type { PermissionRowInjected } from './PermissionRow.tsx'
 import {
-  accessEn, accessRu, accessZh, en, zh,
+  accessEn, accessRu, accessZh, en, ru, zh,
 } from './locales.ts'
 import {
   displayPermissionPreset, FULL_ACCESS_PRESET,
