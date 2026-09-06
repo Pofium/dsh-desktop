@@ -36,5 +36,5 @@ export const ru = {
   'status.empty': 'Нет параметров',
   'overlay.aria': 'Параметры /{command}',
   'listbox.aria': 'Совпадения /{command}',
-  'notice.imagesUnsupported': '/{command} не принимает прикрепленные изображения; удалите их',
+  'notice.attachmentsUnsupported': '/{command} не принимает вложения — сначала удалите их',
 } satisfies Record<CommandKey, string>

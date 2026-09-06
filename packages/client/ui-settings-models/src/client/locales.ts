@@ -212,6 +212,8 @@ export const zh: { [Key in keyof typeof en]: string } = {
 /** Russian dictionary, checked complete against the zh key set. */
 export const ru: Record<ModelsKey, string> = {
   nav: 'Пресеты агента',
+  fetchSearch: 'Найти модели',
+  fetchNoMatches: 'Подходящих моделей не найдено.',
   title: 'Разрешения',
   intro: 'Настройка и просмотр установленных плагинов.',
   edit: 'Редактировать',

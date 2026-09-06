@@ -262,6 +262,7 @@ export const ru = {
   'chat.deepDiving': 'Глубокий анализ...',
   'chat.turnNavigation.label': 'Навигация по раундам',
   'chat.turnNavigation.jump': 'Перейти к раунду {turn}',
+  'chat.turnNavigation.jumpLoad': 'Загрузить и перейти к раунду {turn}',
   'chat.turnNavigation.turn': 'Раунд {turn}',
   'settings.transcript.title': 'Отображение диалога',
   'settings.transcript.description': 'Управляет отображением процесса выполнения в завершённых раундах',

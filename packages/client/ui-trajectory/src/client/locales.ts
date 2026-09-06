@@ -551,4 +551,5 @@ export const ru: Record<TrajectoryKey, string> = {
   'layout.toolsUpdated': 'Инструменты обновлены',
   'layout.systemPromptAndToolsUpdated': 'Системный промпт и инструменты обновлены',
   'layout.compactionInterrupted': 'Сжатие контекста было прервано до завершения.',
+  'layout.fileAttachments': 'Файлы ×{count}',
 }
