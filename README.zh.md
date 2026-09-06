@@ -18,6 +18,12 @@ DeepSeek Harness 处于 _开发者预览_ 阶段，正在快速迭代。**未来
 
 ## 运行
 
+### Windows 桌面应用（MSI 与便携版）
+
+Windows 10/11 用户可以在 [Releases](https://github.com/Pofium/dsh-desktop/releases) 页面下载预构建的桌面包：
+- **便携版 ZIP（`.zip`）**：自包含压缩包——解压后运行 `DeepSeek Harness.exe` 即可。压缩包内置 Electron 外壳、独立 Node.js 运行时和 `dsh` 服务器，无需在系统中安装 Node.js。Web UI 自带中文、英文和俄文词典，首次启动会在原生窗口中启动 `127.0.0.1:3080` 本地服务器。
+- **MSI 安装程序（`.msi`）**：标准 Windows 安装包，带桌面图标和开始菜单快捷方式，可选择“仅当前用户”（无需管理员权限）或“所有用户”安装。
+
 ### 通过 `npm` 运行
 
 安装 `Node.js`，然后运行：

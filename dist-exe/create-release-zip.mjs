@@ -6,7 +6,7 @@ const ROOT = process.cwd();
 const RELEASE_DIR = join(ROOT, 'dist-release');
 mkdirSync(RELEASE_DIR, { recursive: true });
 
-const zipName = 'DeepSeek-Harness-v0.1.2-windows-x64.zip';
+const zipName = 'DeepSeek-Harness-v0.1.2-rc.1-windows-x64.zip';
 const zipPath = join(RELEASE_DIR, zipName);
 
 console.log('Creating Release ZIP at:', zipPath);

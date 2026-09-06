@@ -20,7 +20,7 @@ Review the [safety notice](SAFETY.md) before running the project.
 
 For Windows 10/11 users, pre-built desktop packages are available in [Releases](https://github.com/Pofium/dsh-desktop/releases):
 - **Windows MSI Installer (`.msi`)**: Standard Windows setup package with desktop icon, Start Menu shortcuts, and choice between *Per-User* (no admin required) or *Per-Machine* installation.
-- **Portable ZIP (`.zip`)**: Standalone archive — extract and launch `DeepSeek Harness.exe`.
+- **Portable ZIP (`.zip`)**: Self-contained archive — extract and launch `DeepSeek Harness.exe`. The archive bundles the Electron shell, a private Node.js runtime, and the `dsh` server, so no system Node.js installation is required. The Web UI ships with Russian, English, and Chinese dictionaries, and the first launch starts a local server on `127.0.0.1:3080` inside a native window.
 
 ### Run from `npm`
 
