@@ -25,9 +25,11 @@ describe('DocumentTitle', () => {
     expect(document.title).toBe('DeepSeek Harness')
   })
 
-  it('uses the generic title when the build provides no title', () => {
+  it('uses the served document title when the build provides no title', () => {
     vi.stubEnv('DSH_CLIENT_TITLE', '')
     delete process.env.DSH_CLIENT_TITLE
+    // The served HTML carries the build-selected product title in <title>.
+    document.title = 'DeepSeek Harness'
     const mounted = render(<DocumentTitle title="First title" />)
     expect(document.title).toBe('First title — DeepSeek Harness')
     mounted.unmount()
