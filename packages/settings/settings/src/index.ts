@@ -16,7 +16,6 @@ import type { SettingsNamespace, SettingsUpdateSource } from './types.ts'
 export { redactSecrets } from './redact.ts'
 export type { RedactedSecret, RedactedValue } from './redact.ts'
 export type { SettingsNamespace, SettingsUpdateSource } from './types.ts'
-export { parseSettingsNamespace }
 
 const NAMESPACE_PATTERN = /^[a-z][a-z0-9-]*$/
 type LowercaseLetter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm'
