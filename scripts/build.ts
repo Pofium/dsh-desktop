@@ -49,4 +49,7 @@ function main(): void {
   )
 }
 
-if (import.meta.main) main()
+// tsx leaves import.meta.main undefined on some Node versions, which made this
+// script exit 0 without running anything; fall back to the argv entry point.
+const isEntry = import.meta.main ?? process.argv[1]?.endsWith('build.ts') === true
+if (isEntry) main()
