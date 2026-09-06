@@ -322,6 +322,16 @@ function installLockStat(lockPath) {
   }
 }
 
+/**
+ * Compare two stat results for the same lock file. Windows reports `dev: 0`
+ * for a path-based lstat while a handle-based fstat carries the real device
+ * number, so a strict dev comparison would always fail there; dev is only
+ * decisive when both sides reported a nonzero value.
+ */
+function sameLockDevice(left, right) {
+  return left.dev === right.dev || left.dev === 0 || right.dev === 0
+}
+
 function parseInstallLock(record) {
   const match = /^([1-9]\d*) ([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\n$/i.exec(record)
   if (match === null) return undefined
@@ -362,7 +372,7 @@ function releaseInstallLock(lockPath, ownedRecord, ownedStat) {
     currentStat === undefined
     || !currentStat.isFile()
     || currentStat.isSymbolicLink()
-    || currentStat.dev !== ownedStat.dev
+    || !sameLockDevice(currentStat, ownedStat)
     || currentStat.ino !== ownedStat.ino
     || readInstallLock(lockPath) !== ownedRecord
   ) {
@@ -402,7 +412,7 @@ async function acquireInstallLock(commonDirectory) {
         publishedStat === undefined
         || !publishedStat.isFile()
         || publishedStat.isSymbolicLink()
-        || publishedStat.dev !== ownedStat.dev
+        || !sameLockDevice(publishedStat, ownedStat)
         || publishedStat.ino !== ownedStat.ino
       ) {
         throw lockOwnershipChangedError(lockPath)
@@ -422,7 +432,7 @@ async function acquireInstallLock(commonDirectory) {
       if (!verifiedStat.isFile() || verifiedStat.isSymbolicLink()) {
         throw manualLockRecoveryError(lockPath, 'invalid')
       }
-      if (verifiedStat.dev !== existingStat.dev || verifiedStat.ino !== existingStat.ino) continue
+      if (!sameLockDevice(verifiedStat, existingStat) || verifiedStat.ino !== existingStat.ino) continue
       const owner = parseInstallLock(existingRecord)
       if (owner === undefined) {
         if (!installLockRecordMayBeIncomplete(existingRecord)) {
@@ -431,7 +441,7 @@ async function acquireInstallLock(commonDirectory) {
         const now = Date.now()
         if (
           initializingLock === undefined
-          || initializingLock.dev !== existingStat.dev
+          || !sameLockDevice(initializingLock, existingStat)
           || initializingLock.ino !== existingStat.ino
         ) {
           initializingLock = {
