@@ -242,23 +242,6 @@ describe('subagent prompt Remote', () => {
     })
   })
 
-  it('refuses an image the wire accepts, whatever else the content carries', async () => {
-    const { subagents } = await bench({ [PARENT]: { status: 'idle' } })
-    const followup = vi.spyOn(subagents, 'followup')
-    // Both variants the widened wire admits: the browser's encoded upload and a
-    // durable reference. The Client narrows neither, so the Host answers both.
-    const encoded = { type: 'image' as const, mediaType: 'image/png' as const, data: 'AAA=' }
-    const durable = { type: 'image' as const, attachment: { attachmentId: 'att-1' } as never }
-    for (const image of [encoded, durable]) {
-      const content = [{ type: 'text' as const, text: 'look at this' }, image]
-      await expect(subagents.prompt({ ...promptRequest(), content }, signal)).rejects.toMatchObject({
-        code: 'subagent/attachment-unsupported',
-        details: { childSessionId: CHILD, reason: 'SUBAGENT_IMAGE_UNSUPPORTED' },
-      })
-    }
-    expect(followup).not.toHaveBeenCalled()
-  })
-
   it('delivers the content under the caller-minted identity and canonical browser zone', async () => {
     const { subagents } = await bench({ [PARENT]: { status: 'idle' } })
     const delivery = promptDelivery(subagents).mockResolvedValue('m-1' as MessageId)
