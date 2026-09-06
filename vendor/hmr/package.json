@@ -46,10 +46,12 @@
   },
   "dependencies": {
     "@babel/code-frame": "^7.29.0",
-    "chokidar": "^4.0.3",
+    "@deepseek-ai/cordis-plugin-include": "workspace:^",
+    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
     "@deepseek-ai/cosmokit": "workspace:^",
-    "picomatch": "^4.0.3",
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@deepseek-ai/schemastery": "workspace:^",
+    "chokidar": "^4.0.3",
+    "picomatch": "^4.0.3"
   },
   "devDependencies": {
     "@types/babel__code-frame": "^7.27.0",
