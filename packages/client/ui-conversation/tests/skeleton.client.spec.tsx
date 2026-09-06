@@ -40,7 +40,7 @@ Range.prototype.getBoundingClientRect = () => ({
 
 function fakeWiring() {
   const sink = vi.fn(() => Promise.resolve({ kind: 'success' as const }))
-  const shell = new SessionInputShell({ actx: {} as Context, defaultSink: sink, commandImages: { serialize: () => Promise.resolve([]), release: () => {}, unsupportedNotice: (token: string) => `${token.trim()} images-unsupported` } })
+  const shell = new SessionInputShell({ actx: {} as Context, defaultSink: sink, commandAttachments: { serialize: () => Promise.resolve([]), release: () => {}, unsupportedNotice: (token: string) => `${token.trim()} attachments-unsupported` } })
   return { wiring: shell, sink, shell }
 }
 
@@ -203,6 +203,7 @@ function mount(
           actions={store.actions}
           renderSlot={renderSlot as never}
           open={open}
+          selectView={(view) => { store.actions.setView(view) }}
           t={t}
         />
       )
@@ -227,6 +228,7 @@ function mount(
           actions={store.actions}
           renderSlot={renderSlot as never}
           bindDraftMirror={write => wiring.bindMirror(write)}
+          openView={(view, focus) => { store.actions.openView(view, focus) }}
         />
       )
     }
@@ -247,9 +249,11 @@ function mount(
           useInput={useInput}
           inputActions={inputActions}
           keyboard={wiring}
-          addImages={() => null}
-          removeImage={() => {}}
-          draftImages={() => []}
+          addFiles={() => null}
+          useFileUploads={bindSnapshotSelector(createSnapshotStore({}))}
+          retryFileUpload={undefined}
+          removeAttachment={() => {}}
+          resolveDraftAttachments={() => []}
           resolveSubmitMode={() => 'queue'}
           toggleCommandMenu={vi.fn()}
           useNotices={bindSnapshotSelector(wiring.notices)}
@@ -326,6 +330,25 @@ describe('Hero chrome', () => {
 })
 
 describe('ConversationRoot resident composer', () => {
+  it('does not redispatch composer child slots for an unrelated Session publication', () => {
+    const b = mount(sessionSnapshotOf())
+    const childKeys = new Set([
+      'conversation.input.overlay',
+      'conversation.input.left',
+      'conversation.input.right',
+      'conversation.composer.dock',
+    ])
+    const dispatchCount = () => b.slotCalls.filter(key => childKeys.has(key)).length
+    const before = dispatchCount()
+
+    act(() => {
+      const current = b.session.getSnapshot()
+      b.session.set({ ...current, hasMore: !current.hasMore })
+    })
+
+    expect(dispatchCount()).toBe(before)
+  })
+
   it('renders the composer inert with the blocker\u2019s own reason', () => {
     const b = mount(sessionSnapshotOf(), undefined, undefined, {
       composerBlock: { reason: 'select a model first' },
@@ -433,8 +456,7 @@ describe('ConversationRoot resident composer', () => {
         { ...workspace('second'), title: 'Selected Folder' },
       ],
     )
-    // Hero chrome present, view ring absent; scroll host already wraps the
-    // resident composer so the blank → active flip does not remount it.
+    // Hero chrome is present and the selected View slot remains absent.
     const host = b.view.container.querySelector('[data-conversation-scroll]')
     const header = b.view.container.querySelector('header')
     expect(host).not.toBeNull()

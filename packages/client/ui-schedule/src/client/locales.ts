@@ -49,25 +49,3 @@ export const en: Record<ScheduleCatalogKey, string> = {
 
 /** Key domain of the Schedule catalog namespace. */
 export type ScheduleCatalogKey = keyof typeof zh
-
-/** Russian dictionary, checked complete against the zh key set. */
-export const ru: Record<ScheduleCatalogKey, string> = {
-  'trigger.one': '{count} напоминание',
-  'trigger.other': '{count} напоминаний',
-  'list.aria': 'Активные напоминания',
-  'status.scheduled': 'Запланировано',
-  'status.overdue': 'Просрочено',
-  'frequency.once': 'Однократно',
-  'frequency.every': 'Каждые {value} {unit}',
-  'unit.day.one': 'день',
-  'unit.day.other': 'дней',
-  'unit.hour.one': 'час',
-  'unit.hour.other': 'часов',
-  'unit.minute.one': 'минуту',
-  'unit.minute.other': 'минут',
-  'unit.second.one': 'секунду',
-  'unit.second.other': 'секунд',
-  'relative.now': 'Сейчас',
-  'relative.future': 'через {value} {unit}',
-  'relative.overdue': 'просрочено на {value} {unit}',
-}
