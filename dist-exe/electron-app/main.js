@@ -144,6 +144,12 @@ function createWindow() {
 
   Menu.setApplicationMenu(null);
 
+  mainWindow.webContents.on('console-message', (event, level, message, line, sourceId) => {
+    log(`[renderer] ${message} @ ${sourceId}:${line}`);
+  });
+  mainWindow.webContents.on('did-fail-load', (_e, code, desc, url) => {
+    log(`[renderer] did-fail-load ${code} ${desc} ${url}`);
+  });
   try {
     mainWindow.webContents.session.setSpellCheckerLanguages(['ru-RU', 'ru', 'en-US', 'en']);
     mainWindow.webContents.session.clearCache();
@@ -312,8 +318,44 @@ async function startServer() {
     serverLogStream.end();
   });
 
-  log(`Waiting for port ${DSH_PORT}...`);
-  const ready = await waitForServer(DSH_PORT, MAX_WAIT_MS);
+  log(`Waiting for port ${DSH_PORT} and the live auth URL...`);
+  const start = Date.now();
+  let ready = false;
+  while (Date.now() - start < MAX_WAIT_MS) {
+    if (await isPortReady(DSH_PORT)) {
+      ready = true;
+      // The port answers as soon as the socket listens, but the authenticated
+      // URL arrives on stdout slightly later; prefer it over the stale log.
+      if (authenticatedUrl !== DSH_URL) break;
+      await new Promise((r) => setTimeout(r, 1500));
+      if (authenticatedUrl !== DSH_URL) break;
+      // Port is up and no URL was printed (server from an earlier run): the
+      // existing session cookie may still authenticate the plain URL.
+      break;
+    }
+    await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
+  }
+
+  if (ready && authenticatedUrl === DSH_URL && mainWindow) {
+    // No live URL captured: scan the log, but only entries written after this
+    // server actually started, so a token from a dead run is never reused.
+    try {
+      const serverLogContent = fs.readFileSync(path.join(dshHome, 'dsh-server.log'), 'utf8');
+      const marker = serverLogContent.lastIndexOf('Starting ---');
+      const fresh = marker >= 0 ? serverLogContent.slice(marker) : serverLogContent;
+      const matches = Array.from(fresh.matchAll(/dsh web:\s+(https?:\/\/[^\s\)]+)/gi));
+      if (matches.length > 0) {
+        authenticatedUrl = matches[matches.length - 1][1];
+        log(`Using URL from this run's server log: ${authenticatedUrl}`);
+      }
+    } catch (e) {
+      log(`Could not read server log: ${e.message}`);
+    }
+  }
+
+  if (ready && authenticatedUrl === DSH_URL && mainWindow) {
+    log('No authenticated URL available; loading plain URL.');
+  }
 
   if (ready && mainWindow) {
     if (authenticatedUrl === DSH_URL) {
