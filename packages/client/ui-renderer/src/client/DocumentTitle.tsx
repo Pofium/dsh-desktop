@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 
-const DEFAULT_CLIENT_TITLE = 'DeepSeek Harness'
+// The build bakes the product title into the served <title>; capture it once
+// as the restore target instead of duplicating the literal in client code.
+const productTitleFallback = typeof document === 'undefined' ? '' : document.title
 
 /** Props for the browser title projection. */
 export interface DocumentTitleProps {
@@ -15,7 +17,7 @@ export interface DocumentTitleProps {
  * @returns No rendered content.
  */
 export function DocumentTitle({ title }: DocumentTitleProps): null {
-  const productTitle = process.env.DSH_CLIENT_TITLE ?? DEFAULT_CLIENT_TITLE
+  const productTitle = process.env.DSH_CLIENT_TITLE ?? productTitleFallback
   useEffect(() => {
     document.title = title === undefined ? productTitle : `${title} — ${productTitle}`
     return () => { document.title = productTitle }
