@@ -56,6 +56,15 @@ for (const name of readdirSync(nm)) {
   let touched = refreshOutDir(runtimePkgDir, sourceDir, 'lib')
   if (name === 'dsh-web-frontend') touched = refreshOutDir(runtimePkgDir, sourceDir, 'dist') || touched
   if (existsSync(join(sourceDir, 'config'))) touched = refreshOutDir(runtimePkgDir, sourceDir, 'config') || touched
+  // Bundle root manifests are loaded from the package dir at boot (not from
+  // lib/), so a stale copy here drops inserts the fresh lib expects — for
+  // example a cordis.patch.yml insert row added upstream between syncs.
+  for (const manifest of ['cordis.patch.yml', 'cordis.yml']) {
+    if (existsSync(join(sourceDir, manifest))) {
+      cpSync(join(sourceDir, manifest), join(runtimePkgDir, manifest))
+      touched = true
+    }
+  }
   if (touched) synced++
 }
 
